@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    /* Text - Font */
+    --text-font: "Montserrat", serif;
+
+    /* Color */
+    --color-primary: #0080FF;
+    --color-secondary: #ffffff;
+    --color-third: #2B2B2B;
+    --color-fourth: #0D3C49;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--text-font);
+}
+body {
+    min-height: 100vh;
+}
+
+#content {
+    margin-left: 360px; 
+    padding: 20px;
+    padding-top: 3em;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.navigation {
+    position: fixed;
+    width: 350px;
+    height: 100%;
+    background: var(--color-primary);
+    border-left: 10px solid var(--color-primary);
+    transition: .5s;
+    overflow: hidden;
+}
+
+.navigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navigation ul li {
+    position: relative;
+    width: 200%;
+    list-style: none;
+    border-top-left-radius: .9em;
+    border-bottom-left-radius: .9em;
+    transition: .5s;
+}
+
+.navigation ul li.active {
+    background-color: var(--color-secondary);
+    transition: .5s;
+}
+
+.navigation ul li:nth-child(1) {
+    margin-bottom: 4em;
+    margin-top: 1em;
+    padding: 0 4em;
+    pointer-events: none;
+}
+
+.navigation ul li:nth-child(5) {
+    margin-top: 35em;
+    padding: 0 3em;
+}
+
+.navigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--color-secondary);
+    transition: color 0.5s;
+}
+
+.navigation ul li.active a {
+    color: var(--color-primary);
+}
+
+.navigation ul li a .bi {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.navigation ul li a .list {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.navigation ul li.active::before,
+.navigation ul li.active::after {
+    content: '';
+    position: absolute;
+    right: 340px;
+    width: 40px;
+    height: 40px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    opacity: 0; 
+    transform: scale(0);
+    transition: all 0.5s ease-in-out; 
+}
+
+.navigation ul li.active::before {
+    top: -40px;
+    box-shadow: 20px 20px 0 0 var(--color-secondary);
+}
+
+.navigation ul li.active::after {
+    bottom: -40px;
+    box-shadow: 20px -20px 0 0 var(--color-secondary);
+}
+
+.navigation ul li.active::before,
+.navigation ul li.active::after {
+    opacity: 1;
+    transform: scale(1); 
+}

@@ -1,0 +1,25 @@
+
+.grafic-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.grafic{
+    display: flex;
+}
+
+.chart-box {
+    width: 700px !important; /* Cambia el ancho según necesites */
+    height: 300px !important; /* Cambia la altura según necesites */
+}
+.full-width {
+    width: 100% !important;
+    height: 400px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

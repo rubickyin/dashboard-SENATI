@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    /* Text - Font */
+    --text-font: "Montserrat", serif;
+
+    /* Color */
+    --color-primary: #0080FF;
+    --color-secondary: #ffffff;
+    --color-third: #2B2B2B;
+    --color-fourth: #0D3C49;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--text-font);
+}
+
+
+body {
+    background-image: url(../img/img-login.png);
+    background-size: cover;
+    background-position: 100% 10%;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+
+main {
+    position: relative;
+    height: 100vh;
+}
+
+/* Estilos para la notificación flotante */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #ff4d4d;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Ocultar por defecto */
+    z-index: 1000;
+}
+
+.notification.show {
+    display: block; /* Mostrar cuando tenga la clase "show" */
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.login {
+    position: absolute;
+    top: 50%;
+    right: 15%;
+    transform: translateY(-50%);
+    width: 550px;
+    height: 450px;
+    padding: 3em 7em;
+    border-radius: 1em;
+    box-shadow: 0 0 20px #0080FF;
+    background-color: var(--color-secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login .textA{
+    text-align: center;
+    font-size: 1em;
+    color: var(--color-third);
+    font-weight: 500;
+    padding: 1.5em 0;
+}
+
+.login form {
+    display: grid;
+    gap: 12px;
+    width: 100%;
+    margin: 0 0 20px;
+}
+
+.login :is(input, button) {
+    height: 50px;
+    font-size: 1em;
+    padding: 0 12px;
+    border: 0;
+    border-radius: 8px;
+}
+
+.login .textbox {
+    position: relative
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #909090;
+    transition: color 0.3s;
+    font-size: 1.2em;
+}
+
+.toggle-password:hover {
+    color: var(--color-primary);
+}
+
+
+label,
+input {
+    transition: .3s;
+}
+
+.textbox label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    translate: 0 -50%;
+    transform-origin: 0 50%;
+    pointer-events: none;
+    color: #909090;
+    font-weight: 600;
+}
+
+.textbox input {
+    width: 100%;
+    padding-top: 10px;
+    background: #ffffff;
+    outline: none;
+    color: inherit;
+    box-shadow: 0 0 5px hsla(0, 0%, 0%, 0.25);
+}
+
+.textbox input:focus {
+    box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.textbox input:is(:focus, :not(:invalid))~label {
+    scale: 0.725;
+    translate: 0 -112%;
+}
+
+button{
+    background-color: var(--color-primary);
+    text-align: center;
+    color: var(--color-secondary);
+    font-weight: 700;
+    cursor: pointer;
+    transition: .5s;
+}
+
+button:hover{
+    background-color: var(--color-fourth);
+    transition: .5s;
+}
+
+.login .password-update a{
+    font-size: .8em;
+    color: var(--color-primary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: .5s;
+    text-decoration: none;
+}
+
+.login .password-update:hover a{
+    transition: .5s;
+    color: var(--color-fourth);
+}

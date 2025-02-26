@@ -1,0 +1,182 @@
+.gestU .header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+.header .head1 .title{
+    font-size: 2em;
+    color: var(--color-third);
+}
+
+.title::after {
+    content: "";
+    display: block;
+    width: 400px;
+    height: 2px;
+    background: var(--color-primary);
+    margin-top: .5em;
+}
+
+.header .btn-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -1.5em;
+    color: var(--color-third);
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.header .btn-img .name{
+    padding-top: .5em;
+}
+
+.gestU .btn-add-search{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 3em 0;
+}
+
+.btn-add-search .add{
+    background-color: var(--color-primary);
+    padding: .2em 1em;
+    border-radius: .5em;
+    display: flex;
+}
+
+.add a{
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    font-size: .9em;
+}
+
+.add a i{
+    font-size: 1.5em;
+}
+
+.search{
+    position: relative;
+    width: 220px;
+}
+
+.search input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    padding-left: 10px; 
+    padding-top: 1em;
+    border: 2px solid var(--color-primary);
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+    color: var(--color-third);
+    background-color: transparent;
+}
+
+.search label {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: var(--color-primary);
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.search input:is(:focus, :not(:invalid))~label{
+    scale: 0.725;
+    translate: 0 -75%;
+    left: 0;
+}
+
+.gestU .dates{
+    border-radius: 1em;
+    box-shadow: 0 0 4px rgb(0, 0, 0, 25%);
+    padding: 1em 2em 3em 2em;
+    min-height: 70vh;
+    height: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    table-layout: fixed;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+
+thead {
+    border-bottom: 1px solid #ddd;
+}
+
+thead th{
+    color: var(--color-third);
+    font-weight: bold;
+}
+
+tbody tr {
+    border-bottom: 1px solid #ddd;
+    color: var(--color-third);
+    font-weight: 500;
+}
+
+/* Estilos para los estatus */
+.badge {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.Pe-Conf {
+    width: 70%;
+    color: var(--color-third);
+    border: 1px solid var(--color-third);
+}
+
+.Pre-Ped {
+    width: 70%;
+    color: #FFB900;
+    border: 1px solid #FFB900;
+}
+
+.Pe-Env {
+    width: 70%;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+
+.Pe-Entr {
+    width: 70%;
+    color: #25D366;
+    border: 1px solid #25D366;
+}
+
+/* Botón de acción (⋮) */
+.btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    color: #555;
+}

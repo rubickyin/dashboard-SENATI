@@ -1,0 +1,19 @@
+CREATE DATABASE DashboarIdhercon;
+USE DashboarIdhercon;
+
+
+CREATE TABLE Usuarios (
+    ID_de_Usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    DNI VARCHAR(20) NOT NULL,
+    Estatus VARCHAR(50),
+    Nombres VARCHAR(100) NOT NULL,
+    Apellidos VARCHAR(100) NOT NULL,
+    Numero VARCHAR(15),
+    Contraseña VARCHAR(255) NOT NULL
+) AUTO_INCREMENT = 1435545;
+
+
+ALTER TABLE Usuarios ADD COLUMN email VARCHAR(100) NOT NULL;
+
+ADD COLUMN token_recuperacion VARCHAR(64) DEFAULT NULL,
+ADD COLUMN token_expiracion DATETIME DEFAULT NULL;
