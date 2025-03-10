@@ -1,7 +1,7 @@
 <?php
 
-session_start();
 require_once 'conexion.php';
+include '../seguridad/auth.php';
 global $conn;
 
 use PHPMailer\PHPMailer\PHPMailer;

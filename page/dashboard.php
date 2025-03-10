@@ -1,3 +1,14 @@
+<?php
+include '../php/conexion.php';
+include '../seguridad/auth.php';
+
+$bienvenido = isset($_GET['bienvenido']);
+$id_usuario = isset($_SESSION['usuario']);
+$nombre_usuario = isset($_SESSION['nombre_usuario']) ? $_SESSION['nombre_usuario'] : '';
+$foto_perfil = isset($_SESSION['foto']) && !empty($_SESSION['foto']) ? $_SESSION['foto'] : '../img/foto-none.png';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +26,11 @@
     <link rel="stylesheet" href="../css/dashboard.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 </head>
 
@@ -35,12 +51,23 @@
                             <span class="list">Dashboard - Inicio</span>
                         </a>
                     </li>
+                    <!-- Gestión de Cuentas (solo visible para admin) -->
+                    <?php if ($_SESSION['Estatus'] === 'Admin'): ?>
                     <li class="nav-item" data-content="gestion-cuentas">
                         <a href="#">
                             <i class="bi bi-person-plus-fill"></i>
                             <span class="list">Gestión de Cuentas</span>
                         </a>
                     </li>
+                    <?php else: ?>
+                    <li class="nav-item" data-content="gestion-cuentas" style="pointer-events: none; opacity: 0.5;">
+                        <a href="javascript:void(0)">
+                            <i class="bi bi-person-plus-fill"></i>
+                            <span class="list">Gestión de Cuentas</span>
+                        </a>
+                    </li>
+                    <?php endif; ?>
+
                     <li class="nav-item" data-content="administracion-pedidos">
                         <a href="#">
                             <i class="bi bi-box-seam"></i>
@@ -48,7 +75,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#">
+                        <a href="../php/logout.php">
                             <i class="bi bi-lock-fill"></i>
                             <span class="list">Cerrar Sesión</span>
                         </a>
@@ -60,11 +87,46 @@
         <!-- Contenedor de contenido dinámico -->
         <div id="content">
             
+            
         </div>
     </main>
 
-    <script src="../scritp/dash-in.js"></script>
+    <div id="notification" class="notification">
+    <?php if ($bienvenido): ?>
+        ¡Bienvenido, <?php echo htmlspecialchars($nombre_usuario); ?>!
+    <?php elseif ($error): ?>
+        Usuario o contraseña incorrectos
+    <?php endif; ?>
+    </div>
 
+    <?php if (isset($_GET['error']) && $_GET['error'] === 'acceso-denegado'): ?>
+    <div class="alert alert-danger notification" id="notification">
+    No tienes permiso para acceder a esa sección.
+    </div>
+    <?php endif; ?>
+
+
+    <script src="../scritp/dash-in.js"></script>
+    <script src="../scritp/sweetalert.js"></script>
+    <script src="../scritp/sweetalertPed.js"></script>
+    <script>
+    <?php if ($bienvenido): ?>
+        document.addEventListener("DOMContentLoaded", function() {
+            const notification = document.getElementById("notification");
+            notification.classList.add("show");
+            
+            setTimeout(() => {
+                notification.classList.remove("show");
+            }, 2000);
+        });
+
+        // Elimina el parámetro de la URL después de mostrar el mensaje
+        history.replaceState(null, null, window.location.pathname);
+    <?php endif; ?>
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

@@ -180,3 +180,74 @@ tbody tr {
 .btn:hover {
     color: #555;
 }
+
+.custom-button {
+    background-color: #007bff !important;
+    color: #fff !important;
+    border-radius: 5px !important;
+    padding: 5px 20px !important;
+    font-weight: bold !important;
+}
+
+
+
+#swal2-html-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#tienda {
+    margin-top: 1em;
+    margin-bottom: 20px;
+    width: 80%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.pedido {
+    margin-right: 10px;
+}
+
+.cantidad {
+    width: 60px;
+    padding: 2px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 5px;
+}
+
+.badge-confirmado {
+    width: 70%;
+    color: #2B2B2B;
+    border: 1px solid #2B2B2B;
+}
+.badge-preparacion {
+    width: 70%;
+    color: #FFB900;
+    border: 1px solid #FFB900;
+}
+.badge-enviado {
+    width: 70%;
+    color: #0080FF;
+    border: 1px solid #0080FF;
+}
+.badge-entregado {
+    width: 70%;
+    color: #25D366;
+    border: 1px solid #25D366;
+}

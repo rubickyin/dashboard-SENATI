@@ -1,6 +1,7 @@
 <?php
-session_start();
+
 require_once 'conexion.php';
+include '../seguridad/auth.php';
 global $conn;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

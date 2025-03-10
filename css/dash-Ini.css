@@ -29,7 +29,7 @@ body {
 }
 
 .container {
-    position: relative;
+    position: static;
     width: 100%;
 }
 
@@ -140,4 +140,38 @@ body {
 .navigation ul li.active::after {
     opacity: 1;
     transform: scale(1); 
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: -400px; /* Fuera de la pantalla inicialmente */
+    padding: 10px 20px;
+    margin: 0;
+    max-width: 300px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    z-index: 1000;
+    transition: transform 0.5s ease, right 0.5s ease, opacity 0.5s ease;
+    opacity: 0; /* Transparente inicialmente */
+}
+
+.notification.show {
+    right: 20px; /* Posición visible */
+    opacity: 1; /* Mostrar con transición */
+}
+
+.notification.hide {
+    right: -400px; /* Salir a la derecha */
+    opacity: 0; /* Ocultar con transición */
+}
+
+.notification.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
 }

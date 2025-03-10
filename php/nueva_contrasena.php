@@ -1,6 +1,6 @@
 <?php
-session_start();
 require_once 'conexion.php';
+include '../seguridad/auth.php';
 global $conn;
 
 if (!isset($_SESSION['codigo_verificado']) || !$_SESSION['codigo_verificado']) {

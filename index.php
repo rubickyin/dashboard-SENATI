@@ -14,6 +14,8 @@ $error = isset($_GET['error']);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <link rel="stylesheet" href="css/login.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
@@ -75,6 +77,22 @@ $error = isset($_GET['error']);
             toggleIcon.classList.remove("bi-eye-fill");
             toggleIcon.classList.add("bi-eye-slash-fill");
         }
+    }
+    </script>
+
+    <script>
+    // Verifica si existe el parámetro ?logout=1 en la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('logout') === '1') {
+        Swal.fire({
+            icon: 'success',
+            title: 'Sesión cerrada',
+            text: 'Has cerrado sesión correctamente.',
+            showConfirmButton: false,
+            timer: 2000 // Duración en milisegundos (2 segundos)
+        });
+        // Elimina el parámetro de la URL después de mostrar el mensaje
+        history.replaceState(null, null, window.location.pathname);
     }
     </script>
 </body>

@@ -9,17 +9,32 @@
 
 .grafic{
     display: flex;
+    margin-bottom: 5em;
 }
 
 .chart-box {
-    width: 700px !important; /* Cambia el ancho según necesites */
+    width: 400px !important; /* Cambia el ancho según necesites */
     height: 300px !important; /* Cambia la altura según necesites */
 }
 .full-width {
-    width: 100% !important;
-    height: 400px !important;
+    width: 74% !important;
+    height: 300px !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.titG{
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.titleI::after {
+    content: "";
+    display: block;
+    width: 280px;
+    height: 2px;
+    background: var(--color-primary);
+    margin-top: .5em;
 }
